@@ -1,5 +1,5 @@
 import random 
-from automaton.FiniteAutomaton import FiniteAutomaton
+from automata.FiniteAutomata import FiniteAutomata
 
 
 class Grammar:
@@ -37,5 +37,5 @@ class Grammar:
             print(f"Compiling... {generated_string}")
         return generated_string
 
-    def to_finite_automaton(self) -> FiniteAutomaton:
-        return FiniteAutomaton(self.V_n, self.V_t, self.P)
+    def to_finite_automaton(self) -> FiniteAutomata:
+        return FiniteAutomata(self.V_n, self.V_t, self.P)

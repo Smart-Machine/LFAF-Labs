@@ -2,7 +2,7 @@ from typing import Callable, Union
 from .Transaction import Transaction
 
 
-class FiniteAutomaton:
+class FiniteAutomata:
 
     Q: list 
     Sigma: list 

@@ -124,7 +124,6 @@ class FiniteAutomata():
         new_states = []
         states = [list(nfa.keys())[0]]
         symbols = self.Sigma
-        searched_states = []
 
         # first row
         dfa[states[0]] = {}
@@ -138,8 +137,6 @@ class FiniteAutomata():
         # rest rows
         while len(new_states) != 0:
             state = new_states.pop(0)
-            if state in searched_states:
-                continue
             dfa[state] = {}
             fragmented_states = [state[i:i+2] for i in range(0, len(state), 2)]
             for _ in range(len(fragmented_states)):
@@ -154,7 +151,6 @@ class FiniteAutomata():
                     dfa[state][symbols[i]] = s
             if dfa[state] == {}:
                 dfa.pop(state)
-            searched_states = list(set(searched_states + fragmented_states))
 
         self.table = dfa
 

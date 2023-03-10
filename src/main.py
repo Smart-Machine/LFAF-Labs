@@ -1,8 +1,6 @@
 from automaton.Transaction import Transaction
 from automaton.FiniteAutomata import FiniteAutomata
-from automata.fa.dfa import DFA
 from grammar.Grammar import Grammar
-from visual_automata.fa.dfa import VisualDFA
 
 if __name__ == '__main__':
 
@@ -47,35 +45,8 @@ if __name__ == '__main__':
     grammar = finite_automaton.to_grammar()
     print(f"Grammar type for the second lab: {grammar.classify()}")
 
-    print(finite_automaton.classify())
+    print(f"The Finite Automaton type before converting it: {finite_automaton.classify()}")
     finite_automaton.convert_to_dfa()
-    print(finite_automaton.classify())
+    print(f"The Finite Automaton type after converting it: {finite_automaton.classify()}")
 
-
-    # visual representation
-    print(finite_automaton.table)
-    # t = finite_automaton.table.copy()
-    # for k, v in t.items():
-    #     for i, j in v.items():
-    #         if not v[i]:
-    #             continue
-    #         x[]
-    table = {}
-    for key, value in finite_automaton.table.items():
-        for k, v in value.items():
-            if v:
-                if not table.get(key):
-                    table[key] = {}
-                table[key][k] = v
-
-    print(table)
-
-    dfa = VisualDFA(
-        states=finite_automaton.table.keys(),
-        input_symbols=finite_automaton.Sigma,
-        transitions=table,
-        initial_state="q0",
-        final_states={"q3"}
-    )
-    # print(dfa.table)
-    # dfa.show_diagram()
+    
